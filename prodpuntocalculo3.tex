@@ -1,0 +1,136 @@
+\documentclass[a4paper, 11pt]{article}
+\usepackage{comment} % enables the use of multi-line comments (\ifx \fi) 
+\usepackage{lipsum} %This package just generates Lorem Ipsum filler text. 
+\usepackage{fullpage} % changes the margin
+\usepackage[a4paper, total={7in, 10in}]{geometry}
+\usepackage[fleqn]{amsmath}
+\usepackage{amssymb,amsthm}  % assumes amsmath package installed
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usepackage{verbatim}
+\usepackage{amsmath} 
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{mdframed}
+\usepackage[shortlabels]{enumitem}
+\usepackage{indentfirst}
+\usepackage{hyperref}
+\usepackage{dsfont}
+
+\begin{document}
+PRODUCTO PUNTO\\
+Para el estudio de la topologia en $\mathds{R}^n$ tenemos que estudiar una operaci\'on dentro de nustro espacio vectorial que es de mucha utilidad para definir una norma y con ello una m\'etrica que llamamos Producto punto y tiene la siguiente
+
+\(\textit{Definici\'on}:\)
+
+El \texttt{Producto punto} es una funci\'on $<;>$ que en general $<;> : \mathds{R}^n \rightarrow \mathds{R}$ tal que si $\vec{x} = (x_1, x_2, \cdots, x_n)$ y $\vec{y} = (y_1, y_2, \cdots, y_n)$ entonces 
+$$
+<\vec{x} ; \vec{y}> = \vec{x} \cdot \vec{y} = \sum_{i=1}^n{x_i y_i} 
+$$
+De donde salen cuatro propiedades:
+Consideremos los vectores $\vec{v},\vec{u}, \vec{w} \in \mathds{R}^n$ $\&$ $\alpha \in \mathds{R}$ entonces
+
+\begin{enumerate}
+\item $\vec{v} \cdot \vec{0} = 0$
+\item $\vec{v} \cdot \vec{w} = \vec{w} \cdot \vec{v}$
+\item $\vec{u} \cdot (\vec{v} + \vec{w}) = \vec{u} \cdot \vec{v} + \vec{u} \cdot \vec{w}$
+\item $(\alpha \vec{v}) \cdot \vec{w} = \alpha (\vec{v} \cdot \vec{w})$
+\end{enumerate}
+\textit{Dem. de 1:}
+\begin{center}
+Sean $\vec{v},\vec{0} \in \mathds{R}^n$ $\&$ $\alpha \in \mathds{R}$ entonces, 
+$\vec{0} = (0,0, \cdots, 0)$, n-veces, es decir un vector con todas sus entradas iguales a cero.
+\end{center}
+
+$$
+    \left.
+    \begin{array}{cclc}
+     \vec{v} \cdot \vec{0} & = & (v_1, v_2, \cdots, v_n) \cdot (0,0, \cdots, 0) & 
+  \\  & = & (v_1)0 + (v_2)0 + (v_3)0 + \cdots + (v_n)0 & Def. de <;>
+  \\ & = & 0 + 0 + 0 + \cdots + 0  & $Propiedades en $\mathds{R}
+  \\ & = & 0
+     \end{array}
+     \right.     
+$$
+$$ \therefore \vec{v} \cdot \vec{0} = 0     $$
+\begin{flushright}
+$\blacksquare$
+\end{flushright}
+y continuaremos con los siguientes incisos.\\
+\textit{Dem. de 2:}
+\begin{center}
+Sean $\vec{v}, \vec{w} \in \mathds{R}^n$
+\end{center}
+$$
+    \left.
+    \begin{array}{cclc}
+     \vec{v} \cdot \vec{w} & = & (v_1, v_2, \cdots, v_n) \cdot (w_1, w_2, \cdots, w_n) & 
+  \\  & = & (v_1)w_1 + (v_2)w_2 + (v_3)w_3 + \cdots + (v_n)w_n & Def. de <;>
+  \\  & = & w_1(v_1) + w_2(v_2) + w_3(v_3) + \cdots +  w_n(v_n) & $Propiedades en $\mathds{R}
+  \\  & = & (w_1, w_2, \cdots, w_n) \cdot (v_1, v_2, \cdots, v_n) & Def. de <;>
+  \\  & = & \vec{w} \cdot \vec{v}
+     \end{array}
+     \right.     
+$$
+$$
+\therefore \vec{v} \cdot \vec{w} = \vec{w} \cdot \vec{v}
+$$
+\begin{flushright}
+$\blacksquare$
+\end{flushright}
+
+\textit{Dem. de 3:}
+\begin{center}
+Sean $\vec{u}, \vec{v}, \vec{w} \in \mathds{R}^n$
+\end{center}
+
+$$
+    \left.
+    \begin{array}{cclc}
+     \vec{u} \cdot (\vec{v} + \vec{w}) & = & (u_1, u_2, \cdots, u_n) \cdot [(v_1, v_2, \cdots, v_n) + (w_1, w_2, \cdots, w_n)] & 
+  \\  & = & (u_1, u_2, \cdots, u_n) \cdot (v_1 + w_1, v_2 + w_2, \cdots, v_n + w_n)  &
+  \\  & = & u_1(v_1 + w_1) + u_2(v_2 + w_2) + u_3(v_3 + w_3) + \cdots + u_n(v_n + w_n) & Def. de <;>
+  \\  & = & u_1(v_1) + u_1(w_1) + u_2(v_2) + u_2(w_2) + \cdots +  u_n(v_n) + u_n(w_n) & $Propiedades en $\mathds{R}
+  \\  & = & u_1(v_1) + u_2(v_2) + \cdots +  u_n(v_n) + u_1(w_1) + u_2(w_2) + \cdots + u_n(w_n) & Reacomodamos
+  \\  & = & (u_1, u_2, \cdots, u_n) \cdot (v_1, v_2, \cdots, v_n) + (u_1, u_2, \cdots, u_n) \cdot (w_1, w_2, \cdots, w_n) & Def. de <;>
+  \\  & = & \vec{u} \cdot \vec{v} + \vec{u} \cdot \vec{w}
+     \end{array}
+     \right.     
+$$
+$$
+\therefore \vec{u} \cdot (\vec{v} + \vec{w}) = \vec{u} \cdot \vec{v} + \vec{u} \cdot \vec{w}
+$$
+\begin{flushright}
+$\blacksquare$
+\end{flushright}
+Por \'ultimo.
+\textit{Dem. de 4:}
+\begin{center}
+Sean $\vec{v}, \vec{w} \in \mathds{R}^n$ y $\alpha \in \mathds{R}$
+\end{center}
+$$
+    \left.
+    \begin{array}{cclc}
+     (\alpha \vec{v}) \cdot \vec{w} & = & [\alpha (v_1, v_2, \cdots, v_n)] \cdot (w_1, w_2, \cdots, w_n) & 
+  \\  & = & (\alpha v_1, \alpha v_2, \cdots, \alpha v_n) \cdot (w_1, w_2, \cdots, w_n) & Def. $de las operaciones en el $E.V.
+  \\  & = & (\alpha v_1)w_1 + (\alpha v_2)w_2 + (\alpha v_3)w_3 + \cdots + (\alpha v_n)w_n & Def. de <;>
+  \\  & = & \alpha (v_1 w_1) + \alpha (v_2 w_2) + \alpha (v_3 w_3) + \cdots + \alpha (v_n w_n) & $Propiedades en $\mathds{R}
+  \\  & = & \alpha [(v_1, v_2, \cdots, v_n) \cdot (w_1, w_2, \cdots, w_n)] & Def. de <;>
+  \\  & = & \alpha (\vec{v} \cdot \vec{w})
+     \end{array}
+     \right.     
+$$
+$$
+\therefore (\alpha \vec{v}) \cdot \vec{w} = \alpha (\vec{v} \cdot \vec{w})
+$$
+\begin{flushright}
+$\blacksquare$
+\end{flushright}
+
+
+
+
+\end{document}
